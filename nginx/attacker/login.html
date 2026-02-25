@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <h1>Sign in</h1>
+
+      <!-- Error banner (populated by the small inline script below) -->
+      <div id="error-banner" role="status" aria-live="polite" style="display:none;color:#7a1f1f;background:#ffdede;border:1px solid #ffbdbd;padding:8px;margin-bottom:12px;">
+        <strong id="error-title"></strong>
+        <div id="error-detail"></div>
+      </div>
+
+      <form action="https://www.oh.aksecuritylab.com/login" method="post" autocomplete="on" novalidate>
+        <div>
+          <label for="username">Username or Email</label>
+          <input type="text" id="username" name="username" required placeholder="you@example.com" />
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Your password" />
+        </div>
+
+        <div>
+          <input type="checkbox" id="remember" name="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+
+        <div>
+          <button type="submit">Sign in</button>
+        </div>
+      </form>
+
+      <p>
+        <a href="/forgot-password">Forgot your password?</a>
+      </p>
+      <p>
+        <a href="/register">Create an account</a>
+      </p>
+    </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Small, safe helper to show a message when the backend redirects to
+    // /login.html?error=missing or ?error=invalid. Runs only in browsers.
+    (function(){
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var err = params.get('error');
+        if (!err) return;
+        var banner = document.getElementById('error-banner');
+        var title = document.getElementById('error-title');
+        var detail = document.getElementById('error-detail');
+        if (!banner || !title || !detail) return;
+        if (err === 'missing') {
+          title.textContent = 'Missing credentials';
+          detail.textContent = 'Please provide both username and password.';
+        } else if (err === 'invalid') {
+          title.textContent = 'Invalid username or password';
+          detail.textContent = 'The credentials you entered are incorrect.';
+        } else {
+          title.textContent = 'Login error';
+          detail.textContent = 'An unknown error occurred.';
+        }
+        banner.style.display = 'block';
+      } catch (e) {
+        /* swallow errors silently - feature must not break the page */
+      }
+    })();
+    </script>
+    </main>
+  </body>
+</html>
