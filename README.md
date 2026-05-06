@@ -1,6 +1,6 @@
 # DPU Traffic Hijacking (Research PoC)
 
-A research-oriented proof-of-concept repository for experimenting with traffic interception and HTTP/HTTPS redirection behavior on NVIDIA BlueField-2 + DOCA/DPDK environments. This repository supports my MSc thesis, <b>"Ghost in the Network Card: Stealthy Attacks from a Compromised DPU"</b> (link to be added later).
+A research-oriented proof-of-concept repository for experimenting with traffic interception and HTTP/HTTPS redirection behavior on NVIDIA BlueField-2 + DOCA/DPDK environments. This repository supports my MSc thesis, <b>"Ghost in the Network Card: Stealthy Attacks from a Compromised DPU"</b> (Available at [HUJI Library](https://huji.primo.exlibrisgroup.com/discovery/delivery/972HUJI_INST:HUJI_THESES/12495792350003701)).
 
 The codebase combines:
 - A packet-processing datapath (`traffic-dump`) built with DPDK flow rules.
